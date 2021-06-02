@@ -1,0 +1,17 @@
+Project Start
+
+1. git clone (url)
+2.npm / yarn install
+3. npm / yarn web
+
+Git Manage:
+
+git pull origin main/master
+git checkout -b branchName
+
+
+git add .
+git commit -m"Message"
+git push branchName
+
+
