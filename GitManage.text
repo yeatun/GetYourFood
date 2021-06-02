@@ -6,7 +6,7 @@ Project Start
 
 Git Manage:
 
-git pull origin main/master
+git pull development
 git checkout -b branchName
 
 
