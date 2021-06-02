@@ -6,12 +6,13 @@ Project Start
 
 Git Manage:
 
-git pull development
-git checkout -b branchName
+git checkout -b branchName (1st Time)
 
+git fetch origin development
+git pull origin development
 
 git add .
 git commit -m"Message"
-git push branchName
+git push origin branchName
 
 ..
