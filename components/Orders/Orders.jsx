@@ -11,6 +11,7 @@ const Orders = ({ route, navigation }) => {
     }, [foodId]);
 
     // food object is in the state
+    console.log(food);
 
     return (
         <View>
@@ -18,8 +19,8 @@ const Orders = ({ route, navigation }) => {
                 <>
                     {/* show food details here */}
                     <Text>You are ordering food {foodId} </Text>
-                    <Text>You are ordering food {food.title} </Text>
-                    <Text>You are ordering food {food.description} </Text>
+                    <Text>You are ordering food {food?.title} </Text>
+                    <Text>You are ordering food {food?.description} </Text>
                 </>
             ) : (
                 <Text>
