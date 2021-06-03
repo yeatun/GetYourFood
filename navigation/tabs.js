@@ -1,14 +1,17 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { Ionicons } from '@expo/vector-icons'
+
 import Homepage from '../components/Homepage/Homepage';
 import Products from '../components/Products/Products';
-import { Ionicons } from '@expo/vector-icons'
 import Orders from '../components/Orders/Orders';
 import Blog from '../components/Blog/Blog';
+import Auth from '../components/Auth/Auth';
+
 const Tab = createBottomTabNavigator();
 
 function HomeTabs() {
-    const loggedIn = false
+    const loggedIn = true
 
     return (
         <Tab.Navigator
@@ -30,6 +33,9 @@ function HomeTabs() {
 
                         case "Blogs":
                             iconName = focused ? "paper-plane" : "paper-plane-outline"
+                            break;
+                        case "Login":
+                            iconName = focused ? "person" : "person-outline"
                             break;
                         default:
                             break;
@@ -54,6 +60,7 @@ function HomeTabs() {
                 <>
                     <Tab.Screen name="Home" component={Homepage} />
                     <Tab.Screen name="Products" component={Products} />
+                    <Tab.Screen name="Login" component={Auth} />
                 </>}
         </Tab.Navigator>
     );
