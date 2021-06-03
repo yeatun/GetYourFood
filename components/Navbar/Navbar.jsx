@@ -1,13 +1,8 @@
-import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import HomeTabs from "../../navigation/tabs";
 
 const Navbar = () => {
-    return (
-        <NavigationContainer>
-            <HomeTabs />
-        </NavigationContainer>
-    );
+    return <HomeTabs />;
 };
 
 export default Navbar;
