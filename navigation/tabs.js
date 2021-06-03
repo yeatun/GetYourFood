@@ -8,6 +8,8 @@ import Blog from '../components/Blog/Blog';
 const Tab = createBottomTabNavigator();
 
 function HomeTabs() {
+    const loggedIn = false
+
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -36,11 +38,23 @@ function HomeTabs() {
                     return <Ionicons name={iconName} size={size} color={color} />;
                 }
             })}
+            tabBarOptions={{
+                activeTintColor: 'tomato',
+                inactiveTintColor: 'gray',
+            }}
         >
-            <Tab.Screen name="Home" component={Homepage} />
-            <Tab.Screen name="Products" component={Products} />
-            <Tab.Screen name="Orders" component={Orders} />
-            <Tab.Screen name="Blogs" component={Blog} />
+            {loggedIn ?
+                <>
+                    <Tab.Screen name="Home" component={Homepage} />
+                    <Tab.Screen name="Products" component={Products} />
+                    <Tab.Screen name="Orders" component={Orders} />
+                    <Tab.Screen name="Blogs" component={Blog} />
+                </>
+                :
+                <>
+                    <Tab.Screen name="Home" component={Homepage} />
+                    <Tab.Screen name="Products" component={Products} />
+                </>}
         </Tab.Navigator>
     );
 }
