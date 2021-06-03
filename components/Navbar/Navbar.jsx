@@ -1,11 +1,12 @@
+import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
-import { View, Text } from "react-native";
+import HomeTabs from "../../navigation/tabs";
 
 const Navbar = () => {
     return (
-        <View>
-            <Text>Hello</Text>
-        </View>
+        <NavigationContainer>
+            <HomeTabs />
+        </NavigationContainer>
     );
 };
 
