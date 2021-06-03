@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, StatusBar as NvStatusBar, Platform, SafeAreaView } from 'react-native';
-import Homepage from './components/Homepage/Homepage';
+import { StyleSheet, StatusBar as NvStatusBar, Platform, SafeAreaView } from 'react-native';
 import Navbar from './components/Navbar/Navbar';
 
 export default function App() {
@@ -9,7 +8,6 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <Navbar />
-      <Homepage />
     </SafeAreaView>
   );
 }
@@ -18,6 +16,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: Platform.OS === "android" ? NvStatusBar.currentHeight : 0
+    paddingTop: Platform.OS === "android" ? NvStatusBar.currentHeight : 0,
+
   },
 });
