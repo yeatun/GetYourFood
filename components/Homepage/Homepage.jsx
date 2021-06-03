@@ -5,6 +5,7 @@ import Swiper from "react-native-swiper";
 function Homepage({ navigation }) {
     return (
         <View style={styles.container}>
+           
             <View style={styles.sliderContainer}>
                 <Swiper autoplay horizontal={false} height={200}>
                     <View style={styles.slide}>
