@@ -5,6 +5,18 @@ Updated the .gitignore file to reduce more merge conflict of package-lock.json f
 Installed React Navigation Package
 
 Installed @expo/vector-icons package
+
+
+all  3rd party packages added :
+
+@expo/vector-icons
+@react-navigation/bottom-tabs
+@react-navigation/native
+react-native-screens
+react-native-web
+redux
+react-redux
+redux-devtools-extension
 ..
 
 Pabel Vai:
