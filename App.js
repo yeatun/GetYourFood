@@ -1,13 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, StatusBar as NvStatusBar, Platform, SafeAreaView } from 'react-native';
+import Homepage from './components/Homepage/Homepage';
+import Navbar from './components/Navbar/Navbar';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js Linkon Rayan Pabel</Text>
+    <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-    </View>
+      <Navbar />
+      <Homepage />
+    </SafeAreaView>
   );
 }
 
@@ -15,7 +18,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Platform.OS === "android" ? NvStatusBar.currentHeight : 0
   },
 });
