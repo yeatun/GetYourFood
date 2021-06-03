@@ -1,12 +1,19 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+    StyleSheet,
+    Text,
+    View,
+    Image,
+    TouchableOpacity,
+    ScrollView,
+} from "react-native";
 import Swiper from "react-native-swiper";
 import { foods } from "../../assets/data/data";
 
 function Homepage({ navigation }) {
     const data = foods;
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Text>GET YOUR FOOD</Text>
             <View style={styles.sliderContainer}>
                 <Swiper autoplay horizontal={false} height={200}>
@@ -75,7 +82,7 @@ function Homepage({ navigation }) {
                     </TouchableOpacity>
                 ))}
             </View>
-        </View>
+        </ScrollView>
     );
 }
 
