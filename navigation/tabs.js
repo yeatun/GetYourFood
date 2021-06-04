@@ -44,6 +44,8 @@ function HomeTabs() {
                             break;
                         default:
                             break;
+                            
+                          
                     }
                     return <Ionicons name={iconName} size={size} color={color} />;
                 }
@@ -60,6 +62,7 @@ function HomeTabs() {
                     <Tab.Screen name="Orders" component={Orders} />
                     <Tab.Screen name="Reviews" component={Review} />
                     <Tab.Screen name="Blogs" component={Blog} />
+                    <Tab.Screen name="Login" component={Auth} />
                 </>
                 :
                 <>

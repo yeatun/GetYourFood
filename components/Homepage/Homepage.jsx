@@ -1,11 +1,20 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+    StyleSheet,
+    Text,
+    View,
+    Image,
+    TouchableOpacity,
+    ScrollView,
+} from "react-native";
 import Swiper from "react-native-swiper";
+import { foods } from "../../assets/data/data";
 
 function Homepage({ navigation }) {
+    const data = foods;
     return (
-        <View style={styles.container}>
-            <Text>GET YOUR FOOD</Text>
+        <ScrollView style={styles.container}>
+            <Text style={styles.heading} >GET YOUR FOOD</Text>
             <View style={styles.sliderContainer}>
                 <Swiper autoplay horizontal={false} height={200}>
                     <View style={styles.slide}>
@@ -42,58 +51,38 @@ function Homepage({ navigation }) {
             <View style={styles.cardWrapper}>
                 <Text>Top Foods </Text>
 
-                <TouchableOpacity onPress={() => navigation.navigate("Orders")}>
-                    <View style={styles.card}>
-                        <View style={styles.cardImageWrapper}>
-                            <Image
-                                source={require("../../assets/Images/food-banner3.jpg")}
-                                resizeMode="cover"
-                                style={styles.cardImg}
-                            />
+                {data.map(food => (
+                    <TouchableOpacity
+                        key={food.id}
+                        onPress={() =>
+                            navigation.navigate("Orders", {
+                                foodId: food.id,
+                            })
+                        }
+                    >
+                        <View style={styles.card}>
+                            <View style={styles.cardImageWrapper}>
+                                <Image
+                                    source={food.image}
+                                    resizeMode="cover"
+                                    style={styles.cardImg}
+                                />
+                            </View>
+
+                            <View style={styles.cardInfo}>
+                                <Text style={styles.cardTitle}>
+                                    {" "}
+                                    {food.title}{" "}
+                                </Text>
+                                <Text style={styles.cardDetails}>
+                                    {food.description}
+                                </Text>
+                            </View>
                         </View>
-
-                        <View style={styles.cardInfo}>
-                            <Text style={styles.cardTitle}>Amazing food</Text>
-                            <Text style={styles.cardDetails}>
-                                Amazing description for this amazing place
-                            </Text>
-                        </View>
-                    </View>
-                </TouchableOpacity>
-
-                <View style={styles.card}>
-                    <View style={styles.cardImageWrapper}>
-                        <Image
-                            source={require("../../assets/Images/food-banner2.jpg")}
-                            resizeMode="cover"
-                            style={styles.cardImg}
-                        />
-                    </View>
-                    <View style={styles.cardInfo}>
-                        <Text style={styles.cardTitle}>Amazing food</Text>
-                        <Text style={styles.cardDetails}>
-                            Amazing description for this amazing place
-                        </Text>
-                    </View>
-                </View>
-
-                <View style={styles.card}>
-                    <View style={styles.cardImageWrapper}>
-                        <Image
-                            source={require("../../assets/Images/food-banner3.jpg")}
-                            resizeMode="cover"
-                            style={styles.cardImg}
-                        />
-                    </View>
-                    <View style={styles.cardInfo}>
-                        <Text style={styles.cardTitle}>Amazing food</Text>
-                        <Text style={styles.cardDetails}>
-                            Amazing description for this amazing place
-                        </Text>
-                    </View>
-                </View>
+                    </TouchableOpacity>
+                ))}
             </View>
-        </View>
+        </ScrollView>
     );
 }
 
@@ -166,6 +155,13 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: "#444",
     },
+    heading:{
+        fontSize: 20,
+        fontWeight: "bold",
+        alignSelf: "center",
+        padding:10,
+        color:'#2f4f4f',
+    }
 });
 
 export default Homepage;
