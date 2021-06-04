@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Button,Alert, Text, View,StyleSheet, } from "react-native";
+import {
+    Button,
+    Alert,
+    Text,
+    View,
+    StyleSheet,
+    Image,
+    ScrollView,
+} from "react-native";
 import { getFoodByID } from "../../assets/data/data";
 
 const Orders = ({ route, navigation }) => {
@@ -10,35 +18,48 @@ const Orders = ({ route, navigation }) => {
         setFood(getFoodByID(foodId));
     }, [foodId]);
 
-    // food object is in the state
-    console.log(food);
-
     return (
         <View style={styles.cardWrapper}>
             <Text style={styles.heading}>Your Order details</Text>
             {foodId ? (
                 <>
-                    {/* show food details here */}
-                    {/* <Image
-                                    source={food?.image}
-                                    resizeMode="cover"
-                                  
-                                  
-                                /> */}
-                   
-                   <View style={styles.cardInfo}>
-                   <Text style={styles.cardTitle}> Food no {foodId} </Text>
-                    <Text style={styles.cards} >Food Name : <Text style={styles.cardTitle}>{food?.title}</Text> </Text>
-                    <Text style={styles.cardDetails}>{food?.description} </Text>
-                    <Text style={styles.cards} >Price : <Text style={styles.cardTitle}>${food?.price}</Text> </Text>
-                   <Button style={styles.button}
-                  
-                    title="Order Now!"
-                    color="#2f4f4f"
-                    onPress={() => Alert.alert('Simple Button pressed')}
-                    // accessibilityLabel="Learn more about this purple button"
-                    />
-                                    </View>
+                    <ScrollView>
+                        <Image source={food?.image} resizeMode="cover" />
+
+                        <View style={styles.cardInfo}>
+                            <Text style={styles.cardTitle}>
+                                {" "}
+                                Food no {foodId}{" "}
+                            </Text>
+                            <Text style={styles.cards}>
+                                Food Name :{" "}
+                                <Text style={styles.cardTitle}>
+                                    {food?.title}
+                                </Text>{" "}
+                            </Text>
+                            <Text style={styles.cardDetails}>
+                                {food?.description}{" "}
+                            </Text>
+                            <Text style={styles.cards}>
+                                Price :{" "}
+                                <Text style={styles.cardTitle}>
+                                    ${food?.price}
+                                </Text>{" "}
+                            </Text>
+                            <Button
+                                style={styles.button}
+                                title="Order Now!"
+                                color="#2f4f4f"
+                                onPress={() => {
+                                    Alert.alert(
+                                        "success",
+                                        "Your Order is complete"
+                                    );
+                                    navigation.navigate("Home");
+                                }}
+                            />
+                        </View>
+                    </ScrollView>
                 </>
             ) : (
                 <Text style={styles.noFood}>
@@ -59,10 +80,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-  
+
     wrapper: {},
-   
-   
 
     cardWrapper: {
         marginTop: 100,
@@ -104,7 +123,6 @@ const styles = StyleSheet.create({
     cardTitle: {
         fontWeight: "bold",
         fontSize: 15,
-       
     },
     cardDetails: {
         fontSize: 10,
@@ -112,21 +130,19 @@ const styles = StyleSheet.create({
     },
     cards: {
         fontSize: 15,
-       
     },
-    heading:{
+    heading: {
         fontWeight: "bold",
         fontSize: 25,
         alignSelf: "center",
-        color:'#2f4f4f',
-        padding:20
-        
+        color: "#2f4f4f",
+        padding: 20,
     },
-    noFood:{
-        padding:10,
-        color:'#2f4f4f',
+    noFood: {
+        padding: 10,
+        color: "#2f4f4f",
         alignSelf: "center",
-    }
+    },
 });
 
 export default Orders;
