@@ -80,6 +80,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    image:{
+        width:'100%'
+    },
 
     wrapper: {},
 
