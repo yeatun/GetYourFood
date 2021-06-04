@@ -14,7 +14,7 @@ function Homepage({ navigation }) {
     const data = foods;
     return (
         <ScrollView style={styles.container}>
-            <Text>GET YOUR FOOD</Text>
+            <Text style={styles.heading} >GET YOUR FOOD</Text>
             <View style={styles.sliderContainer}>
                 <Swiper autoplay horizontal={false} height={200}>
                     <View style={styles.slide}>
@@ -155,6 +155,13 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: "#444",
     },
+    heading:{
+        fontSize: 20,
+        fontWeight: "bold",
+        alignSelf: "center",
+        padding:10,
+        color:'#2f4f4f',
+    }
 });
 
 export default Homepage;
