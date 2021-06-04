@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Text, View,StyleSheet, } from "react-native";
+import { Button,Alert, Text, View,StyleSheet, } from "react-native";
 import { getFoodByID } from "../../assets/data/data";
 
 const Orders = ({ route, navigation }) => {
@@ -35,12 +35,13 @@ const Orders = ({ route, navigation }) => {
                   
                     title="Order Now!"
                     color="#2f4f4f"
+                    onPress={() => Alert.alert('Simple Button pressed')}
                     // accessibilityLabel="Learn more about this purple button"
                     />
                                     </View>
                 </>
             ) : (
-                <Text style={styles.cardTitle}>
+                <Text style={styles.noFood}>
                     {/* if there is no food selected user will get this message and pressign the button will redirect to the HOme page 
                     // TODO: style the button */}
                     Please Select a food from{" "}
@@ -121,10 +122,11 @@ const styles = StyleSheet.create({
         padding:20
         
     },
-    // button:{
-    //     padding:10,
-    //     color:'#2f4f4f',
-    // }
+    noFood:{
+        padding:10,
+        color:'#2f4f4f',
+        alignSelf: "center",
+    }
 });
 
 export default Orders;
